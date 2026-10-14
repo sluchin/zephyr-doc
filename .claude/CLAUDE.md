@@ -10,6 +10,7 @@ Zephyr のドキュメント (https://docs.zephyrproject.org/) を、リンク�
 ```
 
 - **共通のコードは、サブモジュール `shared/`** (リポジトリ [doc-translator-core](https://github.com/sluchin/doc-translator-core)) にある。画面 (`shared/ts/ui/`)、HTML の取り出しと翻訳の組み立て (`shared/ts/lib/`)、Rust の取得と翻訳とキャッシュ (`shared/rust/`)、ML Kit のプラグイン (`shared/plugins/tauri-plugin-mlkit/`)、開発用のイメージ (`shared/docker/`)。**共通のコードの変更は、共通のリポジトリで行う** (このリポジトリの `shared/` の中で、直接直さない)。変えたら、共通のリポジトリをコミットして push してから、ここで、サブモジュールの参照を更新してコミットする。
+- ナビゲーションドロワー (メニュー): `SiteProfile.menu` で、メニューの取り方を決める。このアプリは `{ type: "html", selector: ".wy-menu-vertical" }` (ページの HTML の中のメニュー)。メニューの名前は、日本語の表示のときに、ドロワーを開いたときだけ翻訳する (キャッシュされる)。
 - このリポジトリにあるもの: サイトの設定 (`src/site.ts` の `SiteProfile`。`src-tauri/src/lib.rs` の `Site`。ホストは、両方で同じにする)、`src/main.tsx`、サイトの設定のテスト (`src/site.test.ts`)、`src-tauri/` の設定とアイコン、`assets/` (アイコンの素材)。
 - 翻訳のバックエンド (Google Cloud Translation、Gemini API、ML Kit) と、API キーの扱いは、共通のコードの `.claude/CLAUDE.md` と README.md を見る。
 

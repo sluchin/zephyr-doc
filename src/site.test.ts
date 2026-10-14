@@ -12,6 +12,9 @@ import { site } from "./site";
 /** 作り物の Sphinx 風のページ (ドキュメントの文章は使わない). */
 const PAGE = `<html><head><title>Sample — Zephyr Project Documentation</title></head><body>
 <nav>Side menu</nav>
+<div class="wy-menu wy-menu-vertical"><div class="rst-versions"><dl><dt>v</dt></dl></div>
+<ul class="current"><li class="toctree-l1"><a href="../intro/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a href="index.html">Kernel</a><ul><li><a href="a.html">Services</a></li></ul></li></ul></div>
 <div role="main"><h1>Sample</h1><p>Body text.</p></div>
 <div class="rst-versions">Versions</div></body></html>`;
 
@@ -26,5 +29,12 @@ describe("Zephyr site profile", () => {
     expect(page.title).toBe("Sample");
     expect(page.html).toContain("Body text.");
     expect(page.html).not.toContain("Side menu");
+  });
+
+  it("reads the menu of the page into a tree with absolute urls", () => {
+    const page = extractPage(PAGE, "https://docs.zephyrproject.org/latest/kernel/index.html", site);
+    expect(page.menu.map((item) => item.title)).toEqual(["Introduction", "Kernel"]);
+    expect(page.menu[0].url).toBe("https://docs.zephyrproject.org/latest/intro/index.html");
+    expect(page.menu[1].children[0].title).toBe("Services");
   });
 });

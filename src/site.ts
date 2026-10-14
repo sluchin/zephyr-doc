@@ -15,4 +15,6 @@ export const site: SiteProfile = {
   contentSelectors: ['[role="main"]', "main"],
   removeSelectors: [".rst-versions"],
   titleSuffix: / [—–-] .*Documentation$/,
+  // 左のメニュー (目次). ページごとに、今の位置の枝が、開いている
+  menu: { type: "html", selector: ".wy-menu-vertical" },
 };

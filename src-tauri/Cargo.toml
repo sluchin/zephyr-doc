@@ -1,0 +1,30 @@
+[package]
+name = "zephyr-doc"
+version = "0.1.0"
+description = "Translates the Zephyr documentation on demand"
+authors = ["Tetsuya Higashi"]
+license = "GPL-3.0-or-later"
+edition = "2024"
+
+[lib]
+# Windows で bin と名前がぶつからないように, 末尾に _lib を付ける
+name = "zephyr_doc_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+# 共通のコード (サブモジュール shared)
+doc-translator-core = { path = "../shared/rust" }
+# プラグインは, ビルドが, アプリの直接の依存から見つける (権限と Android のプロジェクトのため)
+tauri-plugin-opener = "2"
+tauri-plugin-mlkit = { path = "../shared/plugins/tauri-plugin-mlkit" }
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

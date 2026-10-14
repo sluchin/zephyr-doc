@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- アダプティブアイコンの前景: 白い Z (Zephyr) と, 黄色い丸に「文」(翻訳). 中央の安全な範囲に収める -->
+  <path d="M318 330 H706 V404 L416 620 H706 V694 H318 V620 L608 404 H318 Z" fill="#ffffff"/>
+  <circle cx="676" cy="676" r="124" fill="#ffd166"/>
+  <g fill="none" stroke="#2d2a8c" stroke-width="15" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M676 602 V616"/>
+    <path d="M630 630 H722"/>
+    <path d="M668 634 C 662 670 640 700 612 722"/>
+    <path d="M632 652 C 660 668 690 690 724 724"/>
+  </g>
+</svg>

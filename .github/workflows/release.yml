@@ -3,7 +3,7 @@ name: Release
 # v から始まるタグ (例: v0.1.0) を push すると, PC (Windows, macOS, Linux) と Android のビルドを作り,
 # GitHub Releases のドラフトに載せる (中身を確かめて, 手で公開する). 手動実行 (workflow_dispatch) は,
 # タグを打たずにビルドして, 成果物を Actions の Artifacts に保存する.
-# Android の APK は, デバッグ鍵で署名したデバッグ版 (リリース用の署名鍵は, 使っていない).
+# Android の APK はデバッグ鍵で署名したデバッグ版 (リリース用の署名鍵は使っていない).
 
 on:
   push:
@@ -70,7 +70,7 @@ jobs:
           prerelease: false
           args: --target ${{ matrix.target }}
 
-      # Windows: インストーラとは別に, exe 単体のポータブル版 zip を作る
+      # Windows: インストーラとは別に exe 単体のポータブル版 zip を作る
       - name: Create Windows portable zip
         if: matrix.os == 'windows-latest'
         shell: pwsh
@@ -102,7 +102,7 @@ jobs:
 
   android:
     name: android
-    needs: desktop # ドラフトのリリースを, desktop が作ってから載せる
+    needs: desktop # ドラフトのリリースを desktop が作ってから載せる
     runs-on: ubuntu-latest
     permissions:
       contents: write

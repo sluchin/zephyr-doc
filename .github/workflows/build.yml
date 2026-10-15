@@ -1,13 +1,13 @@
 name: CI
 
-# 開発環境 (Dockerfile) と同じイメージで, docker compose のサービスを実行する.
+# 開発環境 (Dockerfile) と同じイメージで docker compose のサービスを実行する.
 #   test    : フロントエンド (Vitest) と Rust の単体テスト
 #   coverage: src/lib の行と分岐のカバレッジが 100% であること
 #   format  : 整形の確認 (Prettier, rustfmt)
 #   analyze : 型の検査, ESLint, Clippy
 #   build-desktop / build-android: PC (Linux) と Android のデバッグ版のビルド
-#   cleanup : 3 日より前の実行 (ログと artifact) を, push のたびに削除する
-# PC の Windows と macOS のビルドは, それぞれの OS で行う (Docker では作れない. README.md)
+#   cleanup : 3 日より前の実行 (ログと artifact) を push のたびに削除する
+# PC の Windows と macOS のビルドはそれぞれの OS で行う (Docker では作れない. README.md)
 
 on:
   push:

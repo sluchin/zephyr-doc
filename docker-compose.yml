@@ -1,8 +1,8 @@
-# 共通の設定. コンテナは, ホストのユーザーで実行する (生成物が, root 所有にならないように).
-# UID と GID は, シェルでエクスポートしておく
+# 共通の設定. コンテナはホストのユーザーで実行する (生成物が root 所有にならないように).
+# UID と GID はシェルでエクスポートしておく
 x-common: &common
   build:
-    # 開発用のイメージは, 共通のコード (サブモジュール shared) のものを使う
+    # 開発用のイメージは共通のコード (サブモジュール shared) のものを使う
     context: shared/docker
     dockerfile: Dockerfile
     target: dev
@@ -16,7 +16,7 @@ x-common: &common
   user: "${UID:-0}:${GID:-0}"
   environment:
     - HOME=/tmp
-    # Android のデバッグ署名の鍵 (debug.keystore) を, ボリュームに残す
+    # Android のデバッグ署名の鍵 (debug.keystore) をボリュームに残す
     - ANDROID_USER_HOME=/gradle-home/android
 
 services:
@@ -32,7 +32,7 @@ services:
     <<: *common
     command: npm ci
 
-  # アプリの単体テスト (サイトの設定. Vitest + jsdom) と, Rust の単体テスト (共通のコードのテストは, shared で行う)
+  # アプリの単体テスト (サイトの設定. Vitest + jsdom) と, Rust の単体テスト (共通のコードのテストは shared で行う)
   test:
     <<: *common
     command: sh -c "npm test && cd src-tauri && cargo test"

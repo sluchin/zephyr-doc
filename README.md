@@ -64,6 +64,10 @@ docker compose run --rm build-android    # Android のデバッグ版 APK
 - Windows と macOS は、それぞれの OS で `npm ci && npx tauri build` を実行します (Rust, Node.js, 各 OS の Tauri の前提が要ります。https://tauri.app/start/prerequisites/)。
 - 画面の確認 (`npx tauri dev`) は、ホストで行います。
 
+## リリース
+
+`v0.1.0` のようなタグを push すると、GitHub Actions の `release.yml` が、PC (Windows、macOS、Linux のインストーラ。Windows は exe 単体の zip も) と Android の APK を作って、GitHub Releases の**ドラフト**に載せます (中身を確かめて、手で公開します)。APK は、デバッグ鍵で署名したデバッグ版です。タグを打たずに試すときは、Actions の Release を手動で実行します (成果物は、Artifacts に保存されます)。
+
 ## ライセンス
 
 GPL-3.0-or-later。Zephyr のドキュメントは、Zephyr Project のものです (Apache-2.0)。このリポジトリには、ドキュメントの文章を、含めません (実行のときに、取得します)。

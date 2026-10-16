@@ -39,10 +39,9 @@ Zephyr のドキュメント (https://docs.zephyrproject.org/) をリンクを�
 
 ## 開発フロー
 
-1. 機能開発は `ccr-*` ブランチで行う。
-2. Push 時に GitHub Actions (`.github/workflows/build.yml`) が `test` `format` `analyze` `build-desktop` `build-android` (チェックアウトはサブモジュールも取る) を実行する。
-3. コードを修正したら、`format-fix` → `format` → `analyze` → `test` を全て成功させる。共通のコードを変えたら、共通のリポジトリでも、`coverage` まで、成功させる。`tauri.conf.json`、`Cargo.toml`、Android の設定を変えたら、`build-desktop` と `build-android` も実行する。
-4. ビルドやテストを実行できなかったときはそのことを報告する。ユーザーに依頼されない限り、`git commit` / `git push` は行わない。
+1. Push 時に GitHub Actions (`.github/workflows/build.yml`) が `test` `format` `analyze` `build-desktop` `build-android` (チェックアウトはサブモジュールも取る) を実行する。
+2. コードを修正したら、`format-fix` → `format` → `analyze` → `test` を全て成功させる。共通のコードを変えたら、共通のリポジトリでも、`coverage` まで、成功させる。`tauri.conf.json`、`Cargo.toml`、Android の設定を変えたら、`build-desktop` と `build-android` も実行する。
+3. ビルドやテストを実行できなかったときはそのことを報告する。ユーザーに依頼されない限り、`git commit` / `git push` は行わない。
 
 ## 実機で未確認
 

@@ -16,6 +16,12 @@ Zephyr のドキュメント (https://docs.zephyrproject.org/) をリンクを�
 
 **Android Studio は使わない。** ビルド、テスト、整形、静的解析は全てDocker の中で実行する。
 
+## 版
+
+- `SiteProfile.versions` (共通のコード) で、版を選べる。版は、パスの先頭 (`/4.4.0/`)。版の一覧は、ページの下の版の切り替えの、最初の一覧 (`.rst-other-versions dl:first-of-type a`)。`latest` のリンクは `/` なので、選択肢には出ない (`latest` を開いているときは、今の版として出る)。
+- 最初のページは、版を固定した `https://docs.zephyrproject.org/4.4.0/index.html`。版を上げるのは、利用者が画面で選んだとき (自動では上げない)。新しいリリースが出たら、`src/site.ts` の `homeUrl` の版を上げてよい。
+- 翻訳のキャッシュは、版ごとに分ける (Rust の `translate` と `lookup_cache` の `scope`)。
+
 ## セキュリティの決まり (守ること)
 
 - 取得するのは `https://docs.zephyrproject.org/` だけ (`docs.rs` の `is_doc_url`、`lib/docUrl.ts` の `isDocUrl`)。リダイレクトも、そのホストの中だけ。ほかのリンクはブラウザで開く。

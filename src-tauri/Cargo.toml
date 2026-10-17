@@ -20,6 +20,8 @@ tauri = { version = "2", features = [] }
 doc-translator-core = { path = "../shared/rust" }
 # プラグインは, ビルドが, アプリの直接の依存から見つける (権限と Android のプロジェクトのため)
 tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
 tauri-plugin-mlkit = { path = "../shared/plugins/tauri-plugin-mlkit" }
 
 [profile.release]

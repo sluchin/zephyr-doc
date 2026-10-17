@@ -65,7 +65,7 @@ docker compose run --rm build-android    # Android のデバッグ版 APK
 
 - Android の APK: `src-tauri/gen/android/app/build/outputs/apk/universal/debug/app-universal-debug.apk` (arm64)。
 - Windows と macOS はそれぞれの OS で `npm ci && npx tauri build` を実行します (Rust, Node.js, 各 OS の Tauri の前提が要ります。https://tauri.app/start/prerequisites/)。
-- 画面の確認 (`npx tauri dev`) はホストで行います。
+- 画面の確認 (`npm run tauri:dev`) はホストで行います。
 
 ## リリース
 

@@ -33,7 +33,7 @@ Zephyr のドキュメント (https://docs.zephyrproject.org/) をリンクを�
 
 - `docker compose run` には必ず `--rm` を付ける。`UID` と `GID` をシェルでエクスポートしておく。
 - 依存関係: `install` / テスト: `test` (サイトの設定のテストと cargo test。共通のコードのテストと 100% のカバレッジは共通のリポジトリで) / 整形の確認: `format` / 整形: `format-fix` / 静的解析: `analyze` (tsc, ESLint, Clippy) / PC のビルド: `build-desktop` / Android の APK: `build-android` / 生成物の削除: `clean`。
-- Windows と macOS のビルドはそれぞれの OS で行う。画面の確認はホストの `npx tauri dev` か、実機。
+- Windows と macOS のビルドはそれぞれの OS で行う。画面の確認はホストの `npm run tauri:dev` か、実機。
 
 ## コーディング規約
 

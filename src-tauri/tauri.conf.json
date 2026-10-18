@@ -18,8 +18,8 @@
       }
     ],
     "security": {
-      "csp": "default-src 'self'; img-src 'self' https://docs.zephyrproject.org data:; style-src 'self' 'unsafe-inline'; connect-src ipc: http://ipc.localhost",
-      "devCsp": "default-src 'self'; img-src 'self' https://docs.zephyrproject.org data:; style-src 'self' 'unsafe-inline'; connect-src ipc: http://ipc.localhost ws://localhost:1420 http://localhost:1420; script-src 'self' 'unsafe-inline'"
+      "csp": "default-src 'self'; img-src 'self' https://docs.zephyrproject.org data:; font-src 'self' https://docs.zephyrproject.org data:; style-src 'self' 'unsafe-inline'; connect-src ipc: http://ipc.localhost",
+      "devCsp": "default-src 'self'; img-src 'self' https://docs.zephyrproject.org data:; font-src 'self' https://docs.zephyrproject.org data:; style-src 'self' 'unsafe-inline'; connect-src ipc: http://ipc.localhost ws://localhost:1420 http://localhost:1420; script-src 'self' 'unsafe-inline'"
     }
   },
   "bundle": {

@@ -87,7 +87,7 @@ jobs:
         run: gh release upload "${{ github.ref_name }}" $env:PORTABLE_ZIP --clobber
 
       - name: Upload bundles as artifacts
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: zephyr-doc-${{ matrix.os }}
           path: |
@@ -134,7 +134,7 @@ jobs:
         run: gh release upload "${{ github.ref_name }}" "zephyr-doc_${{ github.ref_name }}_android_debug.apk" --clobber
 
       - name: Upload the APK as an artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: zephyr-doc-android
           path: "zephyr-doc_*_android_debug.apk"

@@ -10,7 +10,7 @@ use doc_translator_core::Site;
 const SITE: Site = Site {
     host: "docs.zephyrproject.org",
     alt_host: None,
-    user_agent: "zephyr-doc/0.1 (+https://github.com/sluchin/zephyr-doc)",
+    user_agent: "zephyr-doc-trans/0.1 (+https://github.com/sluchin/zephyr-doc-trans)",
 };
 
 /// アプリを起動する.

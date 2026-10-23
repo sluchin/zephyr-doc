@@ -8,7 +8,7 @@ import type { SiteProfile } from "../shared/ts/lib/profile";
 
 /** Zephyr のドキュメント (Sphinx + Read the Docs テーマ) の設定. */
 export const site: SiteProfile = {
-  name: "Zephyr Doc",
+  name: "Zephyr Doc Trans",
   host: "docs.zephyrproject.org",
   pathPrefix: "/",
   // 版を固定して読む (版を上げるときは、画面で版を選ぶ). 最初は、最新のリリース

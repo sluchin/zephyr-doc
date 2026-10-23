@@ -65,7 +65,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
-          releaseName: 'Zephyr Doc ${{ github.ref_name }}'
+          releaseName: 'Zephyr Doc Trans ${{ github.ref_name }}'
           releaseDraft: true
           prerelease: false
           args: --target ${{ matrix.target }}
@@ -75,8 +75,8 @@ jobs:
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
-          $zip = "zephyr-doc_${{ github.ref_name }}_windows_x64_portable.zip"
-          Compress-Archive -Path "src-tauri/target/${{ matrix.target }}/release/zephyr-doc.exe" -DestinationPath $zip
+          $zip = "zephyr-doc-trans_${{ github.ref_name }}_windows_x64_portable.zip"
+          Compress-Archive -Path "src-tauri/target/${{ matrix.target }}/release/zephyr-doc-trans.exe" -DestinationPath $zip
           "PORTABLE_ZIP=$zip" | Out-File -FilePath $env:GITHUB_ENV -Append
 
       - name: Upload portable zip to release
@@ -89,7 +89,7 @@ jobs:
       - name: Upload bundles as artifacts
         uses: actions/upload-artifact@v7
         with:
-          name: zephyr-doc-${{ matrix.os }}
+          name: zephyr-doc-trans-${{ matrix.os }}
           path: |
             src-tauri/target/${{ matrix.target }}/release/bundle/deb/*.deb
             src-tauri/target/${{ matrix.target }}/release/bundle/rpm/*.rpm
@@ -125,17 +125,17 @@ jobs:
       - name: Name the APK
         run: |
           cp src-tauri/gen/android/app/build/outputs/apk/universal/debug/app-universal-debug.apk \
-            "zephyr-doc_${{ github.ref_name }}_android_debug.apk"
+            "zephyr-doc-trans_${{ github.ref_name }}_android_debug.apk"
 
       - name: Upload the APK to release
         if: github.ref_type == 'tag'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release upload "${{ github.ref_name }}" "zephyr-doc_${{ github.ref_name }}_android_debug.apk" --clobber
+        run: gh release upload "${{ github.ref_name }}" "zephyr-doc-trans_${{ github.ref_name }}_android_debug.apk" --clobber
 
       - name: Upload the APK as an artifact
         uses: actions/upload-artifact@v7
         with:
-          name: zephyr-doc-android
-          path: "zephyr-doc_*_android_debug.apk"
+          name: zephyr-doc-trans-android
+          path: "zephyr-doc-trans_*_android_debug.apk"
           if-no-files-found: error

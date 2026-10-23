@@ -52,7 +52,7 @@ services:
     <<: *common
     command: sh -c "npm run typecheck && npm run lint && cd src-tauri && cargo clippy --all-targets -- -D warnings"
 
-  # PC (Linux) のデバッグ版をビルドする (src-tauri/target/debug/zephyr-doc)
+  # PC (Linux) のデバッグ版をビルドする (src-tauri/target/debug/zephyr-doc-trans)
   build-desktop:
     <<: *common
     command: npx tauri build --debug --no-bundle

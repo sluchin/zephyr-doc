@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    zephyr_doc_lib::run()
+    zephyr_doc_trans_lib::run()
 }

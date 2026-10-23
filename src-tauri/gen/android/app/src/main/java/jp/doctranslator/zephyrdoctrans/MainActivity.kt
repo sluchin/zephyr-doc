@@ -1,4 +1,4 @@
-package jp.sluchin.zephyrdoc
+package jp.doctranslator.zephyrdoctrans
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
